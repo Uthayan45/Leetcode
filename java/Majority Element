@@ -1,0 +1,15 @@
+class Solution {
+    public int majorityElement(int[] nums) {
+        Map<Integer,Integer> countMap=new HashMap<>();
+        int count =0;
+        int element=nums[0];
+        for (int num:nums){
+            countMap.put(num, countMap.getOrDefault(num, 0) + 1);
+            if (countMap.get(num) > count) {
+                element = num;
+                count = countMap.get(num);
+            }
+        }
+        return element;
+    }
+  }
